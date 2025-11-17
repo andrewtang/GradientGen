@@ -94,8 +94,8 @@ function init() {
         // Démarrer le rendu une fois le shader chargé
         startRender();
     }).catch(error => {
-        console.error('Erreur lors de l\'initialisation:', error);
-        status.textContent = 'Erreur: ' + error.message;
+        console.error('Error during initialization:', error);
+        status.textContent = 'Error: ' + error.message;
     });
 }
 
@@ -349,7 +349,7 @@ function initSliders() {
             loadShaders().then(() => {
                 console.log('Shader rechargé avec le mode de mouvement:', shaderParams.movementMode);
             }).catch(error => {
-                console.error('Erreur lors du rechargement du shader:', error);
+                console.error('Error reloading shader:', error);
             });
         });
     }
@@ -682,7 +682,7 @@ function resetAllParameters() {
         console.log('Paramètres réinitialisés');
         updateShaderParams();
     }).catch(error => {
-        console.error('Erreur lors de la réinitialisation:', error);
+        console.error('Error during reset:', error);
     });
 }
 
@@ -763,7 +763,7 @@ function exportHighQuality() {
         const exportShader = createShaderProgramForContext(exportGl, exportFragmentShader);
         
         if (!exportShader) {
-            throw new Error('Erreur de compilation du shader pour l\'export');
+            throw new Error('Shader compilation error for export');
         }
         
         // Créer un framebuffer pour l'export
@@ -896,16 +896,16 @@ function exportHighQuality() {
         // Vérifier les erreurs avant le dessin
         let error = exportGl.getError();
         if (error !== exportGl.NO_ERROR) {
-            console.warn('Erreur WebGL avant drawArrays:', error);
+            console.warn('WebGL error before drawArrays:', error);
         }
-        
+
         // Dessiner
         exportGl.drawArrays(exportGl.TRIANGLE_STRIP, 0, 4);
-        
+
         // Vérifier les erreurs après le dessin
         error = exportGl.getError();
         if (error !== exportGl.NO_ERROR) {
-            throw new Error(`Erreur WebGL après drawArrays: ${error}`);
+            throw new Error(`WebGL error after drawArrays: ${error}`);
         }
         
         // Lire les pixels depuis le framebuffer
@@ -999,8 +999,8 @@ function exportHighQuality() {
         exportGl.deleteBuffer(buffer);
         
     } catch (error) {
-        console.error('Erreur lors de l\'export:', error);
-        status.textContent = 'Erreur lors de l\'export';
+        console.error('Error during export:', error);
+        status.textContent = 'Error during export';
         exportButton.disabled = false;
     }
 }
@@ -1715,18 +1715,18 @@ async function loadShaders() {
         // Compiler uniquement le shader Image
         const fragmentShader = createFragmentShader(modifiedImageShader);
         if (!fragmentShader) {
-            throw new Error('Erreur lors de la compilation du fragment shader');
+            throw new Error('Fragment shader compilation error');
         }
         
         shaderPrograms.image = createShaderProgram(fragmentShader);
         
         if (!shaderPrograms.image) {
-            throw new Error('Erreur lors de la création du programme shader');
+            throw new Error('Shader program creation error');
         }
 
         // Plus besoin de créer les buffers complexes pour ce shader simple
         
-        status.textContent = 'Shader chargé. Prêt à générer un dégradé.';
+        status.textContent = 'Shader loaded. Ready to generate a gradient.';
         console.log('✅ Shader program créé avec succès');
         console.log('Uniforms disponibles:');
         console.log('  uScale:', gl.getUniformLocation(shaderPrograms.image, 'uScale') !== null);
@@ -1750,8 +1750,8 @@ async function loadShaders() {
         console.log('  iResolution:', gl.getUniformLocation(shaderPrograms.image, 'iResolution') !== null);
         console.log('  iTime:', gl.getUniformLocation(shaderPrograms.image, 'iTime') !== null);
     } catch (error) {
-        console.error('Erreur lors du chargement du shader:', error);
-        status.textContent = 'Erreur lors du chargement du shader: ' + error.message;
+        console.error('Error loading shader:', error);
+        status.textContent = 'Error loading shader: ' + error.message;
         throw error; // Propager l'erreur pour que le .catch() puisse la gérer
     }
 }
@@ -1874,7 +1874,7 @@ function createFragmentShaderForContext(webglContext, source) {
     
     if (!webglContext.getShaderParameter(shader, webglContext.COMPILE_STATUS)) {
         const errorLog = webglContext.getShaderInfoLog(shader);
-        console.error('Erreur de compilation shader:', errorLog);
+        console.error('Shader compilation error:', errorLog);
         // Afficher les premières lignes pour debug
         const lines = fullSource.split('\n');
         console.error('Premières lignes:', lines.slice(0, 50).join('\n'));
@@ -1911,7 +1911,7 @@ function createShaderProgramForContext(webglContext, fragmentShader) {
     webglContext.compileShader(vertexShader);
     
     if (!webglContext.getShaderParameter(vertexShader, webglContext.COMPILE_STATUS)) {
-        console.error('Erreur vertex shader:', webglContext.getShaderInfoLog(vertexShader));
+        console.error('Vertex shader error:', webglContext.getShaderInfoLog(vertexShader));
         return null;
     }
     
@@ -1921,7 +1921,7 @@ function createShaderProgramForContext(webglContext, fragmentShader) {
     webglContext.linkProgram(program);
     
     if (!webglContext.getProgramParameter(program, webglContext.LINK_STATUS)) {
-        console.error('Erreur de lien:', webglContext.getProgramInfoLog(program));
+        console.error('Linking error:', webglContext.getProgramInfoLog(program));
         return null;
     }
     
@@ -2417,7 +2417,7 @@ function renderPass(program, targetFramebuffer, textures, writeTexture = null) {
     // Vérifier les erreurs WebGL avant de dessiner
     let error = gl.getError();
     if (error !== gl.NO_ERROR) {
-        console.error('Erreur WebGL avant drawArrays:', error);
+        console.error('WebGL error before drawArrays:', error);
     }
     
     // Vérifier que le programme est actif
@@ -2438,7 +2438,7 @@ function renderPass(program, targetFramebuffer, textures, writeTexture = null) {
     // Vérifier les erreurs WebGL après le dessin
     error = gl.getError();
     if (error !== gl.NO_ERROR) {
-        console.error('Erreur WebGL après drawArrays:', error);
+        console.error('WebGL error after drawArrays:', error);
         if (error === gl.INVALID_OPERATION) {
             console.error('INVALID_OPERATION - Le shader ou le programme est peut-être invalide');
         }

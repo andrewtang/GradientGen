@@ -1,108 +1,108 @@
-# GradientGen - Guide d'hébergement gratuit
+# GradientGen - Free Hosting Guide
 
-## 🚀 Options d'hébergement gratuites
+## 🚀 Free Hosting Options
 
-Votre application est une application web statique qui peut être hébergée gratuitement sur plusieurs plateformes.
+Your application is a static web app that can be hosted for free on several platforms.
 
-### Option 1 : GitHub Pages (Le plus simple !)
+### Option 1: GitHub Pages (Easiest!)
 
-**Étapes :**
+**Steps:**
 
-1. **Créer un compte GitHub** (si vous n'en avez pas) : https://github.com
+1. **Create a GitHub account** (if you don't have one): https://github.com
 
-2. **Créer un nouveau dépôt** :
-   - Cliquez sur "New repository"
-   - Nommez-le (ex: `gradientgen`)
-   - Choisissez "Public"
-   - Cliquez sur "Create repository"
+2. **Create a new repository**:
+   - Click on "New repository"
+   - Name it (e.g., `gradientgen`)
+   - Choose "Public"
+   - Click on "Create repository"
 
-3. **Uploader vos fichiers** :
-   - Téléchargez GitHub Desktop : https://desktop.github.com
-   - Ou utilisez les commandes suivantes dans votre terminal :
+3. **Upload your files**:
+   - Download GitHub Desktop: https://desktop.github.com
+   - Or use the following commands in your terminal:
 
 ```bash
 cd "C:\Users\noega\Desktop\FreeTool1"
 git init
 git add .
-git commit -m "Première version"
+git commit -m "First version"
 git branch -M main
-git remote add origin https://github.com/VOTRE-NOM/gradientgen.git
+git remote add origin https://github.com/YOUR-NAME/gradientgen.git
 git push -u origin main
 ```
 
-4. **Activer GitHub Pages** :
-   - Allez dans votre dépôt sur GitHub
-   - Cliquez sur "Settings" (Paramètres)
-   - Dans le menu de gauche, cliquez sur "Pages"
-   - Sous "Source", sélectionnez "main" (ou "master")
-   - Cliquez sur "Save"
-   - Votre site sera disponible à : `https://VOTRE-NOM.github.io/gradientgen`
+4. **Enable GitHub Pages**:
+   - Go to your repository on GitHub
+   - Click on "Settings"
+   - In the left menu, click on "Pages"
+   - Under "Source", select "main" (or "master")
+   - Click on "Save"
+   - Your site will be available at: `https://YOUR-NAME.github.io/gradientgen`
 
-### Option 2 : Netlify (Très simple avec drag & drop !)
+### Option 2: Netlify (Very simple with drag & drop!)
 
-**Étapes :**
+**Steps:**
 
-1. **Aller sur Netlify** : https://www.netlify.com
-2. **Créer un compte gratuit** (avec GitHub, Google, ou email)
-3. **Glisser-déposer votre dossier** `FreeTool1` sur la page Netlify
-4. **C'est tout !** Vous obtenez une URL immédiatement
+1. **Go to Netlify**: https://www.netlify.com
+2. **Create a free account** (with GitHub, Google, or email)
+3. **Drag and drop your folder** `FreeTool1` onto the Netlify page
+4. **That's it!** You get a URL immediately
 
-**Avantages :**
-- URL personnalisée (ex: `votre-nom.netlify.app`)
-- Déploiement automatique si vous utilisez Git
-- HTTPS gratuit
-- Très rapide
+**Advantages:**
+- Custom URL (e.g., `your-name.netlify.app`)
+- Automatic deployment if you use Git
+- Free HTTPS
+- Very fast
 
-### Option 3 : Vercel (Excellente performance)
+### Option 3: Vercel (Excellent performance)
 
-**Étapes :**
+**Steps:**
 
-1. **Aller sur Vercel** : https://vercel.com
-2. **Créer un compte gratuit**
-3. **Importer votre projet** (via GitHub ou drag & drop)
-4. **Déployer !**
+1. **Go to Vercel**: https://vercel.com
+2. **Create a free account**
+3. **Import your project** (via GitHub or drag & drop)
+4. **Deploy!**
 
-### Option 4 : Cloudflare Pages
+### Option 4: Cloudflare Pages
 
-**Étapes :**
+**Steps:**
 
-1. **Aller sur Cloudflare Pages** : https://pages.cloudflare.com
-2. **Créer un compte gratuit**
-3. **Connecter votre dépôt GitHub** ou uploader manuellement
-4. **Déployer !**
+1. **Go to Cloudflare Pages**: https://pages.cloudflare.com
+2. **Create a free account**
+3. **Connect your GitHub repository** or upload manually
+4. **Deploy!**
 
-## 📁 Structure des fichiers
+## 📁 File Structure
 
-Votre application contient :
-- `index.html` - Page principale
-- `sketch.js` - Code JavaScript (contient maintenant le shader intégré)
-- `styles.css` - Styles CSS
-- `Image.frag` - Shader WebGL (optionnel, maintenant intégré dans sketch.js)
-- `BergenMono-Regular.otf` - Police de caractères
+Your application contains:
+- `index.html` - Main page
+- `sketch.js` - JavaScript code (now contains the embedded shader)
+- `styles.css` - CSS styles
+- `Image.frag` - WebGL shader (optional, now embedded in sketch.js)
+- `BergenMono-Regular.otf` - Font file
 
-**Note importante :** Le shader `Image.frag` est maintenant intégré directement dans `sketch.js` pour éviter les problèmes CORS lors de l'ouverture en local (file://). L'application fonctionne maintenant même si vous ouvrez simplement le fichier HTML dans votre navigateur sans serveur web !
+**Important note:** The `Image.frag` shader is now embedded directly in `sketch.js` to avoid CORS issues when opening locally (file://). The application now works even if you simply open the HTML file in your browser without a web server!
 
-Tous ces fichiers doivent être dans le même dossier à la racine.
+All these files must be in the same folder at the root.
 
-## ⚡ Mise à jour
+## ⚡ Updating
 
-Pour mettre à jour votre site :
+To update your site:
 
-**GitHub Pages :**
-- Modifiez vos fichiers localement
-- Committez et poussez sur GitHub
-- Le site se met à jour automatiquement en quelques minutes
+**GitHub Pages:**
+- Modify your files locally
+- Commit and push to GitHub
+- The site updates automatically in a few minutes
 
-**Netlify/Vercel :**
-- Si connecté à GitHub : push automatique
-- Sinon : re-glissez votre dossier mis à jour
+**Netlify/Vercel:**
+- If connected to GitHub: automatic push
+- Otherwise: drag and drop your updated folder again
 
-## 🌐 Partagez votre URL
+## 🌐 Share Your URL
 
-Une fois déployé, vous pouvez partager l'URL avec n'importe qui !
+Once deployed, you can share the URL with anyone!
 
-## 💡 Conseil
+## 💡 Tip
 
-Pour un nom de domaine personnalisé (optionnel, gratuit sur certains services) :
-- Netlify et Vercel permettent d'ajouter un domaine personnalisé gratuitement
-- Vous pouvez aussi utiliser un sous-domaine gratuit sur Freenom
+For a custom domain name (optional, free on some services):
+- Netlify and Vercel allow you to add a custom domain for free
+- You can also use a free subdomain on Freenom
